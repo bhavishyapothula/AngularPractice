@@ -1,0 +1,10 @@
+<p>studentlist works!</p>
+<ul *ngFor="let student of students">
+    <li>{{student.id}} -{{student.name}}-{{student.subject}}</li>
+</ul>
+<h3>{{errormsg}}</h3>
+<p *appUnless="auth">
+    This paragraph is displayed because the condition is false - Custom Structural Directive
+  </p>
+  
+  
