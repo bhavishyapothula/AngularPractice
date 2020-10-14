@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
-import {HttpClient, HttpErrorResponse} from '@angular/common/http'
+import {HttpClient, HttpErrorResponse,HttpResponse} from '@angular/common/http'
 import { IStudent } from './student';
 import { Observable } from 'rxjs';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/throw';
 import { of,pipe } from 'rxjs';
-import { map,filter } from 'rxjs/operators';
+import { map,filter,retry, catchError } from 'rxjs/operators';
 
 const nums = of(1,2,3,4);
 
@@ -38,10 +38,13 @@ export class StudentService {
     //  {id:3,name:'virat',subject:'social'}
     //  ];
     
-   return this.http.get<IStudent[]>(this._url).catch(this.errorHandler);
-
-  }
-
+   //return this.http.get<IStudent[]>(this._url).catch(this.errorHandler);
+   return this.http.get<IStudent[]>(this._url).pipe(
+    retry(3), 
+    catchError(this.errorHandler) 
+  );
+   }
+  
   errorHandler(error:HttpErrorResponse)
   {
     return Observable.throw(error.message||'Server Error');

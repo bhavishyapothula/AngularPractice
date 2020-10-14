@@ -1,23 +1,18 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {HttpClientModule} from '@angular/common/http'
+import {HttpClientModule} from '@angular/common/http';
 import { AppComponent } from './app.component';
-import { StudentlistComponent } from './studentlist/studentlist.component';
 import { StudentdetailsComponent } from './studentdetails/studentdetails.component';
 import {StudentService} from './student.service';
-import { HighlightDirective } from './highlight.directive';
-import {UnlessDirective} from './unless.directive';
-
+import {FormsModule} from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
-    StudentlistComponent,
-    StudentdetailsComponent,
-    HighlightDirective,
-    UnlessDirective
+    StudentdetailsComponent
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     HttpClientModule
   ],
   providers: [StudentService],

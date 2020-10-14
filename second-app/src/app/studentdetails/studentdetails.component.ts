@@ -8,13 +8,14 @@ import { StudentService } from '../student.service';
 })
 export class StudentdetailsComponent implements OnInit {
   students=[];
-errormsg;
+  errormsg;
+
   constructor(private _studentService:StudentService) { }
 
   ngOnInit(): void {
     this._studentService.getDetails()
    .subscribe(data=>this.students=data,
     error=>this.errormsg=error);
+    
   }
-
 }

@@ -1,0 +1,9 @@
+<p>studentdetails works!</p>
+<ul *ngFor="let student of students">
+    <li>{{student.name}}</li>
+</ul>
+
+<input type="text" [(ngModel)]="stuname"/>
+<button (click)="addUser()">Submit</button>
+
+<button (click)="reset()">Reset</button>

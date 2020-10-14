@@ -1,6 +1,6 @@
 <p>studentlist works!</p>
 <ul *ngFor="let student of students">
-    <li>{{student.id}} -{{student.name}}-{{student.subject}}</li>
+    <li appHighlight>{{student.name}}</li>
 </ul>
 <h3>{{errormsg}}</h3>
 <p *appUnless="auth">
