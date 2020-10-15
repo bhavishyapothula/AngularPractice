@@ -18,10 +18,18 @@ export class TestComponent implements OnInit {
   power = 5;
   factor = 2;
   birthday = new Date(1999, 6, 27); 
-  toggle = true; 
-
-  get format()   { return this.toggle ? 'shortDate' : 'fullDate'; }
-  toggleFormat() { this.toggle = !this.toggle; }
+  toggle = true;
+  isDisabled=true; 
+  departments=[
+    {"id":1,"name":'Angualar'},
+    {"id":2,"name":'React'},
+    {"id":3,"name":'Node'}
+  ];
+  fireEvent()
+  {
+    this.childEvent.emit('I am from child component');
+  }
+ 
   
  // values = '';
 
@@ -42,9 +50,6 @@ export class TestComponent implements OnInit {
   {
     this.listitems+=x+'|';
   }
-  fireEvent()
-  {
-    this.childEvent.emit('I am from child component');
-  }
+  
   
 }

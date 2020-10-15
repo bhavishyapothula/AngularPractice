@@ -11,8 +11,8 @@
 
   <input #item (keyup.enter)="addItem(item.value); item.value=''" (blur)="addItem(item.value); item.value=''"><button (click)="addItem(item.value); item.value='' ">Add</button>
   <p>{{listitems}}</p>
-
- 
+{{2+2}}
+ <input [disabled]="isDisabled" value="propertybinding"/>
   <div [ngSwitch]="myc">
       <div *ngSwitchCase="'red'">this is red</div>
       <div *ngSwitchCase="'blue'">this is blue</div>
@@ -20,8 +20,8 @@
       <div *ngSwitchDefault>this is not in list</div>
   </div>
 
-  <p>My birthday is {{ birthday | date:format |uppercase}}</p>
-  <button (click)="toggleFormat()">Change Format</button>
+  <p>My birthday is {{ birthday | date |uppercase}}</p>
+ 
   
 
   <h2>Exponent Calculator using Pipe</h2>
@@ -30,3 +30,10 @@
     <p>
      Result: {{power |exponent:factor}}
     </p>
+
+
+    <ul>
+      <li *ngFor='let department of departments'>
+          {{department.id}}-{{department.name}}
+      </li>
+  </ul> 
