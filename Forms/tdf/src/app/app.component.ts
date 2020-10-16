@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { User } from './user';
-
+import {RegistrationService} from './registration.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -13,7 +13,7 @@ export class AppComponent {
   submitted = false;
   errorMsg = '';
 
-  constructor() {}
+  constructor(private regs:RegistrationService) {}
 
   validateBranch(value) {
     if (value === 'default') {
@@ -25,6 +25,11 @@ export class AppComponent {
 onSubmit()
 {
   console.log(this.userModel);
+  this.regs.enroll(this.userModel)
+      .subscribe(
+        data => console.log('Success!', data),
+        error => this.errorMsg = error.statusText
+      )
 }
   
 }
