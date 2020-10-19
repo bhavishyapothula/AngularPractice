@@ -24,6 +24,7 @@ export class AppComponent {
   }
 onSubmit()
 {
+  this.submitted=true;
   console.log(this.userModel);
   this.regs.enroll(this.userModel)
       .subscribe(
