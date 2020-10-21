@@ -1,0 +1,9 @@
+<input type=text [ngModel]="userName" (ngModelChange)="wish($event)">
+<p>{{userName}}</p>
+<input #myref type=text [(ngModel)]="mail">
+<p>{{mail}}</p>
+<button (click)="userLogged=true">Login</button>
+<button (click)="userLogged=false">Logout</button>
+<app-child #child [loggedIn]="userLogged" ></app-child>
+<p>{{child.userName}}</p>
+<button (click)="child.wish()">Wish</button>
