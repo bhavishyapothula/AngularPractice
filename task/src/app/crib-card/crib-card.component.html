@@ -1,0 +1,58 @@
+<div class="jumbotron">
+    <img src="assets/images/{{ crib.image }}.jpg" alt="crib thumbnail" width=300 height=200>
+
+  <div class="caption">
+    <div *ngIf="!crib.showDetails">
+      <h4>
+        <span class="badge badge-primary">
+          {{ crib.type }}
+        </span>
+      </h4>
+      <h3>
+        <i class="fa fa-tag"></i> 
+          {{ crib.price | currency:'USD':true }}
+      </h3>
+      <h4>
+        <i class="fa fa-home"></i> 
+          {{ crib.address }}
+      </h4>
+
+      <hr>
+
+      <button 
+        class="btn btn-sm btn-success"
+        *ngIf="!crib.showDetails"
+        (click)="crib.showDetails = !crib.showDetails">
+        Details
+      </button>
+
+    </div>
+
+    <div *ngIf="crib.showDetails">
+      <div class="details">
+        <h4>
+          <span class="badge badge-primary">
+            Beds: {{ crib.bedrooms }}
+          </span>
+          <span class="badge badge-primary margin-left">
+            Baths: {{ crib.bathrooms }}
+          </span>
+          <span class="badge badge-primary margin-left">
+            SqFt: {{ crib.area }}
+          </span>
+        </h4>
+
+        <p>{{ crib.description }}</p>
+
+        <hr>
+
+        <button
+          class="btn btn-sm btn-danger"
+          (click)="crib.showDetails = !crib.showDetails">
+          Close
+        </button>
+
+      </div>
+    </div>
+  </div>
+</div>
