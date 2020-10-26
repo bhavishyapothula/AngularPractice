@@ -10,6 +10,9 @@ import { CribsService } from './cribs.service';
 import { AddListingFormComponent } from './add-listing-form/add-listing-form.component';
 import { UtilService } from './util.service';
 import { SortByPipe } from './sort-by.pipe';
+import { DetailsComponent } from './details/details.component';
+import { AppRoutingModule } from './app-routing.module';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -17,12 +20,15 @@ import { SortByPipe } from './sort-by.pipe';
     CribListingComponent,
     CribCardComponent,
     AddListingFormComponent,
-    SortByPipe
+    SortByPipe,
+    DetailsComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    AppRoutingModule
   ],
   providers: [CribsService,UtilService],
   bootstrap: [AppComponent]
